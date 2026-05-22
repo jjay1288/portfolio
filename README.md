@@ -8,7 +8,7 @@ This repository collects sanitized work samples intended for professional review
 
 | Project | Summary |
 | --- | --- |
-| [public-ir](public-ir/) | Sanitized incident response case study covering WordPress compromise investigation, attacker TTPs, evidence handling, eradication, and client-safe reporting. |
+| [ir-restaurant](ir-restaurant/) | Sanitized incident response case study covering WordPress compromise investigation, attacker TTPs, evidence handling, eradication, and client-safe reporting. |
 
 ## Review Notes
 
