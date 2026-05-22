@@ -1,0 +1,19 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local evidence or archives should not be committed here
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.wpress
+*.sql
+*.sqlite
+*.db
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example

@@ -1,0 +1,10 @@
+src/*.wpress
+src/*.wpress.part-*
+src/*.wpress.manifest.md
+src/*.wpress.parts.sha256
+
+# Credentials — never commit
+creds.txt
+
+# Claude Code local settings
+.claude/
