@@ -10,7 +10,7 @@ Times below are UTC. PDT equivalents are included where the response notes used 
 | March 10 onward | Available authentication reconstruction begins | Session and access-log analysis; earlier access remains unresolved |
 | March 11–16 | Backdoor requests and matching PHP errors documented | Preserved server-analysis report; underlying access logs are not included in the public repository |
 | March 18 | Live samples, credential-capture file, and database evidence collected | Evidence packages and database export |
-| March 18, 17:05 (10:05 PDT) | Reviewer recorded PHP deny rules and blocked requests to five webshells | Containment notes and evidence inventory EVD-020 |
+| March 18, 17:05 (10:05 PDT) | Ronald Phillips applied PHP deny rules and recorded blocked requests to five webshells | Containment notes and evidence inventory EVD-020 |
 | March 18, approximately 21:37 (14:37 PDT) | Coordinated cleanup and evidence capture began | Local timestamp in script-generated snapshot name; new archive directory and manifest timestamp 21:37:48 UTC |
 | March 18, after cleanup | Manual database/account fixes, credential rotation, core-checksum checks, and webshell-removal verification recorded | Response notes and recovery checklist; exact minute-by-minute completion times not independently established |
 | March 18, after cleanup | Maintenance mode lifted during a rewrite flush; site returned to service with WAF active | Recovery record |

@@ -4,7 +4,7 @@
 |---|---|
 | Case ID | IR-2026-0310-EXBI |
 | Date | March 18, 2026 |
-| Analyst | Jay Phillips |
+| Analyst | Ronald Phillips |
 | Scope | Immediate preflight before running `eradicate.sh` |
 
 ---

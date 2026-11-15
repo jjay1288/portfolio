@@ -4,7 +4,7 @@
 |---|---|
 | Case ID | IR-2026-0310-EXBI |
 | Date | March 18, 2026 |
-| Analyst | Jay Phillips |
+| Analyst | Ronald Phillips |
 | Scope | Manual actions required alongside `eradicate.sh` |
 
 ---
@@ -46,7 +46,7 @@ The host still has active on-disk malware, active persistence residue, and an al
 
 ## Supplemental Findings
 
-- After SharedHost Provider support's partial March 18 cleanup, the current live host still contains `advanced-cache.php`, `wp-perf-analytics`, all five webshells, modified core/theme files, database persistence, auth residue, and the `_tds_cache_selfheal` WP-Cron event. `wp-content/mu-plugins/` and the `TDS_NOCACHE` block were removed by support, but the compromise remains active enough to require full coordinated eradication.
+- After the initial partial cleanup on March 18, the live host still contains `advanced-cache.php`, `wp-perf-analytics`, all five webshells, modified core/theme files, database persistence, auth residue, and the `_tds_cache_selfheal` WP-Cron event. `wp-content/mu-plugins/` and the `TDS_NOCACHE` block had been removed, but the compromise remains active enough to require full coordinated eradication.
 - User ID 1 (`Manager`) still has a populated `one_time_login_token` usermeta entry from the active `sharedhost-panel-login.php` plugin. The plugin is a legitimate SharedHost Provider panel SSO bridge, not malware, but any live token is an alternate authentication path and should be explicitly cleared after the panel compromise.
 - Orphaned `wp_s8yhai_usermeta` rows still exist for deleted user ID 8. They are not a live account by themselves, but they should be removed as cleanup residue.
 - A second `.backup_time` file exists at the web root (`/home/siteuser02/example-bistro.invalid/.backup_time`) in addition to `wp-admin/.backup_time`. Both files are 333 bytes with 2015 timestamps and contain SharedHost Provider backup system encoded metadata -- they are **legacy hosting artifacts, not attacker tools**. The eradication script now removes both copies. They have no forensic value to this case.

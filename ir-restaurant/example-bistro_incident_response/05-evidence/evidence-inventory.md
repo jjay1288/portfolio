@@ -13,7 +13,7 @@ This index identifies the private artifacts used to prepare the public case. Ori
 | WooCommerce store | `_wc_analytics_data` recorded empty | Database evidence export; client non-use is a separate reported fact |
 | EVD-014: panel error log | Listed in the original inventory but not present among the retrieved artifacts | Not used to establish additional facts |
 | EVD-015/018/019: live themes | Child-theme deployment block and administrator-creation backdoors in captured parent/inactive themes | Static inspection; no PHP execution |
-| EVD-020: containment | Blocked requests to five webshells after directory PHP deny rules | Reviewer notes; not re-tested against the live site |
+| EVD-020: containment | Blocked requests to five webshells after directory PHP deny rules | Response notes; not re-tested against the live site |
 | EVD-021: cleanup snapshot | Seven captured files and a SHA-256 manifest | All seven hashes verified inside the retained tar archive |
 | Recovery checks | Core checksum results, webshell-path checks, credential rotation, and scan outcome | Documented response results; complete execution log not present in retrieved artifacts |
 

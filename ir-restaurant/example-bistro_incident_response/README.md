@@ -1,6 +1,6 @@
 # Technical case records
 
-**IR-2026-0310-EXBI · March 2026 · Incident handler: Jay Phillips**
+**IR-2026-0310-EXBI · March 2026 · Incident handler: Ronald Phillips**
 
 Start with the [case study](../README.md) or the [technical incident report](01-incident-report/IR-2026-0310-EXBI.md).
 

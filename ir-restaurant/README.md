@@ -1,10 +1,10 @@
 # WordPress compromise: investigation and recovery
 
-**March 2026 · Small-business website · Incident handler: Jay Phillips**
+**March 2026 · Small-business website · Incident handler: Ronald Phillips**
 
 A restaurant's WordPress site was intermittently redirecting visitors to unrelated sites. The investigation found five webshells, captured administrator credentials, a hidden account, and several mechanisms that restored malware after partial cleanup. The response combined evidence collection, containment, coordinated removal, credential rotation, and verification.
 
-The client is identified here as **Example Bistro**. The supporting records distinguish the incident handler's investigation and cleanup from hosting-provider support and a reviewer's containment work. Client identities, credentials, and raw malware are excluded from this portfolio.
+The client is identified here as **Example Bistro**. I was the sole responder, handling evidence collection, analysis, containment, eradication, credential recovery, and verification. Client identities, credentials, and raw malware are excluded from this portfolio.
 
 ## Investigation and decisions
 
@@ -12,7 +12,7 @@ The client is identified here as **Example Bistro**. The supporting records dist
 
 The archive listing records the child theme's `functions.php` at **1,095 bytes**. The later live-server evidence contains a **170,140-byte** version with a bounded malware-deployment block. This establishes a substantial difference between the archived listing and the captured live file; it does not prove the larger payload was in the archive. Given the remaining uncertainty about backup integrity, cleanup used fresh vendor files and targeted removal of the live child-theme block.
 
-**Maintenance mode was not effective containment.** A reviewer found that a bypass parameter still allowed requests to five webshells. Directory-level PHP deny rules were applied, and the response notes record blocked requests across three test variants. The snapshot and server-local time basis place this containment before the coordinated cleanup on March 18.
+**Maintenance mode was not effective containment.** I found that a bypass parameter still allowed requests to five webshells. I applied directory-level PHP deny rules and checked that requests were blocked across three test variants. The snapshot and server-local time basis place this containment before the coordinated cleanup on March 18.
 
 **Removing one component would leave restoration paths.** Static inspection confirmed a database-backed cache bootstrap, theme backdoors, a malicious child-theme deployment block, and distributed webshells. Cleanup had to address these together, followed by manual fixes where script checks showed residual database options or an account-removal problem.
 

@@ -6,7 +6,7 @@
 | **Document**   | CRED-001-exposure-report     |
 | **Date**       | March 18, 2026               |
 | **Classification** | CONFIDENTIAL -- CREDENTIAL MATERIAL |
-| **Analyst**    | Jay Phillips                 |
+| **Analyst**    | Ronald Phillips                 |
 | **Subject**    | Example Bistro (example-bistro.invalid) -- Compromised Credentials |
 
 ---

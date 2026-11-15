@@ -4,7 +4,7 @@
 |---|---|
 | Case ID | IR-2026-0310-EXBI |
 | Date | March 18, 2026 |
-| Analyst | Jay Phillips |
+| Analyst | Ronald Phillips |
 | Scope | Validation, credential recovery, and go-live controls after `eradicate.sh` |
 | Eradication Executed | March 18, 2026, beginning approximately 14:37 PDT (21:37 UTC); completion reported in response notes. Referenced execution log was not recovered for this edition. |
 | Evidence Snapshot | `/home/siteuser02/eradication-evidence-20260318-143745/` — downloaded to `05-evidence/eradication-evidence-20260318-143745/` |
@@ -29,7 +29,7 @@ Do not return the site to production until the required validation and credentia
 - [x] Confirm `_tds_cache_selfheal` is absent — **PASS**
 - [x] Confirm `wp-perf-analytics` is removed — **PASS**
 - [x] Confirm no rogue PHP files remain in uploads, fonts, upgrade, or languages — **PASS** (fonts/ PHP files are legitimate WP 6.9.4 core classes)
-- [x] Confirm `.htaccess` is free of `TDS_NOCACHE` — **PASS** (already removed by SharedHost Provider before script ran)
+- [x] Confirm `.htaccess` is free of `TDS_NOCACHE` — **PASS** (already removed before the script ran)
 - [x] Confirm both `.backup_time` artifacts are gone — **PASS**
 
 ---

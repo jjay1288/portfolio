@@ -91,7 +91,7 @@
 | `wp_session_tokens_config` | 168,328 bytes | Base64-encoded backup of session-manager.php | DELETE |
 | `_pre_user_id` | 1 byte (value: `8`) | Hidden admin user ID for stealth queries | DELETE |
 | `_wp_mail_queue_log` | 663 bytes | Intercepted outgoing email log | DELETE (preserve as evidence first) |
-| `_wc_analytics_data` | 0 bytes | WooCommerce order harvesting target (option absent from live DB as of March 18 -- consistent with never-populated or removed during SharedHost Provider partial cleanup) | DELETE if present |
+| `_wc_analytics_data` | 0 bytes | WooCommerce order harvesting target (option absent from live DB as of March 18 -- consistent with never-populated or removed during the earlier partial cleanup) | DELETE if present |
 | `_wp_site_activity` | 682 bytes | Admin action surveillance log | DELETE (preserve as evidence first) |
 
 ### Malicious User

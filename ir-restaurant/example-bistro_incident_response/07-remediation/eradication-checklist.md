@@ -6,7 +6,7 @@
 | **Document**   | eradication-checklist        |
 | **Date**       | March 18, 2026               |
 | **Classification** | CONFIDENTIAL               |
-| **Analyst**    | Jay Phillips                 |
+| **Analyst**    | Ronald Phillips                 |
 | **Subject**    | Example Bistro (example-bistro.invalid) -- Eradication & Remediation |
 
 ---
@@ -363,7 +363,7 @@ All verification checks must pass before the site is returned to production.
   ```bash
   ls -la wp-content/mu-plugins/
   ```
-  Expected result: Either the directory is absent because SharedHost Provider already removed it, or it contains only legitimate files after cleanup
+  Expected result: Either the directory is absent following the earlier cleanup, or it contains only legitimate files after cleanup
 
 - [ ] Verify site loads correctly
   - HTTP 200 response on homepage
@@ -464,7 +464,7 @@ These items require SharedHost Provider support action and cannot be completed f
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
-| IR Analyst | Jay Phillips | | |
+| IR Analyst | Ronald Phillips | | |
 | Site Owner | Site Owner | | |
 
 ---
