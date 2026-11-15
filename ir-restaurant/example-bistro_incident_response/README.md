@@ -1,46 +1,19 @@
-# Incident Response Case File
+# Technical case records
 
-**Case ID:** IR-2026-0310-EXBI
-**Case Name:** Example Bistro Website Compromise
-**Classification:** Tier 1 -- Critical Incident
-**Recorded phase (March 2026):** Recovery / Post-Eradication
+**IR-2026-0310-EXBI · March 2026 · Incident handler: Jay Phillips**
 
-Read the [case summary](../README.md) for the reconciled account. Some records below are historical drafts or pre-cleanup plans; their status is not a confirmation of the site's present condition.
+Start with the [case study](../README.md) or the [technical incident report](01-incident-report/IR-2026-0310-EXBI.md).
 
----
+| Material | Purpose |
+| --- | --- |
+| [Timeline](02-timeline/timeline.md) | Events with a consistent time basis |
+| [Indicators](03-iocs/IOC-registry.md) | Observed domains, file paths, hashes and detection material |
+| [Malware analysis](04-malware-analysis/) | Redirect engine, webshells, credential capture, concealment, persistence and downloader |
+| [Evidence inventory](05-evidence/evidence-inventory.md) | Artifact basis, integrity checks and scope limits |
+| [Authentication reconstruction](05-evidence/auth-session-reconstruction.md) | Session timing and attribution limits |
+| [Credential exposure](06-compromised-credentials/CRED-001-exposure-report.md) | Captured accounts and documented rotation status, with sensitive values redacted |
+| [Remediation](07-remediation/) | Recorded containment, cleanup and recovery procedures |
+| [Analysis scripts](09-tools/) | Offline archive listing, pattern search and payload decoding |
+| [Server findings](10-supporting-analysis/server-scan-findings.md) | Detailed filesystem and server-analysis record |
 
-## Folder Structure
-
-| Directory | Contents |
-|---|---|
-| `00-engagement/` | Engagement letter, statement of work, scope authorization |
-| `01-incident-report/` | Main incident report, executive summary, client deliverables |
-| `02-timeline/` | Detailed chronological timeline of attacker and responder actions |
-| `03-iocs/` | Indicators of Compromise -- domains, IPs, hashes, file paths, DB artifacts |
-| `04-malware-analysis/` | Per-artifact analysis: TDS engine, webshells, credential stealers, persistence mechanisms |
-| `05-evidence/` | Evidence inventory, chain of custody log, acquisition notes |
-| `06-compromised-credentials/` | Credential exposure report, affected accounts, rotation status |
-| `07-remediation/` | Eradication checklist, hardening plan, verification procedures |
-| `08-communications/` | Stakeholder notifications, client correspondence, vendor contacts |
-| `09-tools/` | Curated public-safe scripts and tools used during investigation |
-| `10-supporting-analysis/` | Supporting research and server-side findings retained for public review |
-
-## Case Contacts
-
-| Role | Name | Contact |
-|---|---|---|
-| Incident Handler | Jay Phillips | [EMAIL-REDACTED] |
-| Site Owner | Manager ([REDACTED-OWNER-USERNAME]) | [EMAIL-REDACTED] |
-| Site Owner | Site Owner | [EMAIL-REDACTED] / [EMAIL-REDACTED] |
-| Developer | Agency Developer 1 (Web Agency) | agency-dev-1-agency.invalid |
-| Developer | Agency Developer 2 | agency-dev-2-agency.invalid |
-| Hosting Provider | SharedHost Provider | [EMAIL-REDACTED] |
-
-## Classification Justification (Tier 1)
-
-- Active credential theft confirmed (cleartext passwords captured)
-- Customer-data harvesting capability present, but WooCommerce was confirmed unused and no customer/order/payment data existed in WordPress
-- Hidden persistent admin access by threat actor
-- Multi-layered persistence with database-level backup mechanism
-- Seven intercepted-email entries recovered; the hook could capture mail sent through WordPress
-- Ongoing risk: stolen credentials enable further access to business systems
+Client identifiers and raw artifacts remain private. Results describe the March response, not the site's present condition. Original communications, engagement paperwork, working drafts and editorial records are retained privately.

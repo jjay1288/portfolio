@@ -9,7 +9,7 @@
 
 ---
 
-> **STATUS AS OF MARCH 18, 2026:** This document was written as a pre-eradication planning artifact. Full eradication was completed March 18, 2026 14:37–14:38 UTC via `eradicate.sh`. All items in the manual checklist below were completed. The case records return to service and verification of the known artifacts; remaining limitations are listed in the recovery checklist. See `post-eradication-checklist.md` for current status of remaining items. The content below is preserved as a historical record of the pre-eradication state and the manual actions that were required.
+> **Recorded outcome, March 18, 2026:** Cleanup began at approximately 14:37 PDT (21:37 UTC). The response notes report the manual fixes described below and return to service after verification of the known artifacts. This report preserves the pre-cleanup findings and required actions; see [recovery checks](post-eradication-checklist.md) for recorded completion and remaining follow-up.
 
 ---
 

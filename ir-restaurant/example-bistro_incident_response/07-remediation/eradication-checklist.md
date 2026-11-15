@@ -11,7 +11,7 @@
 
 ---
 
-> **STATUS AS OF MARCH 18, 2026: COMPLETE.** Eradication executed March 18, 2026 14:37–14:38 UTC via `eradicate.sh`. All 8 layers completed in a single maintenance window. Evidence snapshot collected at `/home/siteuser02/eradication-evidence-20260318-143745/` and downloaded locally (EVD-021). Post-eradication verification passed. See `post-eradication-checklist.md` for current recovery status. The checklist below is preserved as a historical planning record.
+> **Recorded outcome, March 18, 2026:** The response notes report completion of the eight cleanup layers, with residual database and account issues resolved manually. Snapshot metadata places the start at approximately 14:37 PDT (21:37 UTC). The complete execution log is not in the retained evidence. The checklist below preserves the planned work; see [recovery checks](post-eradication-checklist.md) for recorded results and outstanding follow-up.
 
 > **CRITICAL: All eradication steps in Phase 1 must be performed in a single maintenance window. The malware has 5 persistence layers -- addressing them sequentially allows remaining layers to regenerate removed components. Do NOT reboot, reload, or visit the site between Layer 1 and Layer 5 completion. Coordinate all steps before beginning and execute them without interruption.**
 
@@ -83,7 +83,7 @@ Run these checks immediately before starting the maintenance-window cleanup. If 
   - Klaviyo and WooCommerce / payment-related integrations if active
 
 - [ ] Confirm rollback expectations are understood
-  - Do not restore known-compromised artifacts from the March 10 `.wpress` archive or the oldest SharedHost Provider backup
+  - Do not restore files from the archive catalogued on March 10 or the oldest hosting backup without verifying the individual files against a trusted source
   - If the child theme cannot be safely cleaned, replace it with a minimal safe stub and restore function deliberately from a separately verified source
 
 For a standalone maintenance-window runbook, see `pre-eradication-checklist.md`.
@@ -268,7 +268,7 @@ These files were modified by the attacker and must be restored to clean versions
   - `wp-content/themes/lemonchili/functions.php`
 
 - [ ] Remove the bounded `/* __mu_deployer__ */` malware block from `wp-content/themes/hello-biz-child/functions.php`
-  - Do **not** restore it blindly from the March 10 `.wpress` archive or the oldest SharedHost Provider backup
+  - Do **not** restore it blindly from the archive catalogued on March 10 or the oldest SharedHost Provider backup
   - If additional malicious code remains after removing the bounded block, quarantine the file and replace it with a minimal safe stub or rebuild it from a separately verified source
 
 - [ ] Reinstall the official `hello-biz` parent theme from WordPress.org

@@ -5,7 +5,7 @@
 
 ---
 
-## Malicious File SHA256 Hashes
+## Captured Artifact SHA256 Hashes
 
 | SHA256 | File | Classification |
 |---|---|---|
@@ -21,7 +21,7 @@
 | `801af0772effdb8bd6634bebf08694ace8dbc77033e81f08090e6074ab6c2afe` | `wp-content/advanced-cache.php` | Persistence / Auto-restore |
 | `5a9799298236c327f77ed0c2200c7fbb213cbe44b4c943f05456bac5399c23d0` | `wp-content/uploads/2024/06/Stained_Heart_Red-600x500.png` | Credential Dump |
 | `a6c861ca4d80f84c8a8b3d9810bb36d48509cbc24b283715eba186d43e1a5ea1` | `wp-includes/css/wp-editor-font.css` | Encrypted Data |
-| `3b2038657cb5e3f9e5dc8bbcc224123737b76e1019729aa1358cd106106343fa` | `wp-admin/.backup_time` | Encrypted Data |
+| `3b2038657cb5e3f9e5dc8bbcc224123737b76e1019729aa1358cd106106343fa` | `wp-admin/.backup_time` | Legacy hosting metadata in the response record; not classified as malware from encoding alone |
 | `83af1b257fa1716b75da99763241bb7900abb3f36ef8a9023cbf093e26887a93` | `wp-login.php` | Modified Core File (credential stealer at line 1327) |
 | `96780cfb26165a1378529319739508c67e126417f49c73793d5d2c2178464146` | `wp-content/plugins/wp-perf-analytics/wp-perf-analytics.php` | XOR-encrypted JS Injector (fake plugin) |
 | `5c1b190358c5c2a3ff0612a02ae71eddf9b1ca4c565f82cf26ac5186c06796a4` | `wp-content/themes/hello-biz/functions.php` | Modified Theme (credential stealer + admin creator backdoor) |
@@ -29,6 +29,8 @@
 ---
 
 ## Notes
+
+- Fifteen table entries were independently matched to the retained initial evidence tar. The separately listed plugin file was not in that tar and retains its recorded acquisition hash.
 
 - The 5 webshell files have **different hashes** despite identical functionality because each has a slightly different relative path calculation (`realpath(__DIR__.'/../..')` vs `realpath(__DIR__.'/../../..')`) and different header comments ("Font Metrics Calculator" vs "Cache Statistics Handler", etc.)
 - `session-manager.php` and `session-manager.php.bak` have different hashes, indicating the `.bak` may be an earlier version

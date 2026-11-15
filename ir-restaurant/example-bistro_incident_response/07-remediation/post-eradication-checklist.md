@@ -6,7 +6,7 @@
 | Date | March 18, 2026 |
 | Analyst | Jay Phillips |
 | Scope | Validation, credential recovery, and go-live controls after `eradicate.sh` |
-| Eradication Executed | March 18, 2026 14:37–14:38 UTC — `eradicate.sh` completed; log at `~/eradication-log-20260318-143745.txt` |
+| Eradication Executed | March 18, 2026, beginning approximately 14:37 PDT (21:37 UTC); completion reported in response notes. Referenced execution log was not recovered for this edition. |
 | Evidence Snapshot | `/home/siteuser02/eradication-evidence-20260318-143745/` — downloaded to `05-evidence/eradication-evidence-20260318-143745/` |
 
 ---
@@ -68,7 +68,7 @@ Do not return the site to production until the required validation and credentia
 
 ## Functional Testing
 
-> **Note:** Maintenance mode was lifted unintentionally when `wp rewrite flush --hard` ran with plugins loaded (March 18, 2026 ~15:xx UTC). Site went live at that point. Wordfence was already active in protecting mode; this alone does not establish absence of exposure during the transition. Remaining functional checks are post-live confirmations.
+> **Note:** Maintenance mode was lifted unintentionally when `wp rewrite flush --hard` ran with plugins loaded (March 18, 2026 ~15:xx PDT). Site went live at that point. Wordfence was already active in protecting mode; this alone does not establish absence of exposure during the transition. Remaining functional checks are post-live confirmations.
 
 - [x] Maintenance mode lifted — **COMPLETE** (unintentional but accepted; site is live)
 - [x] Confirm the homepage loads normally — **PASS** (confirmed during rewrite flush testing)
@@ -101,7 +101,7 @@ Do not return the site to production until the required validation and credentia
 - [ ] Ask SharedHost Provider to confirm there are no extra panel users, subdomains, redirects, or DNS changes tied to the incident
 - [ ] Ask SharedHost Provider to confirm the SSH/SFTP username-field payload was preserved and then cleared
 
-> **Draft ready:** See [08-communications/sharedhost-provider-followup.md](../08-communications/sharedhost-provider-followup.md) — pending review and send.
+Provider follow-up remained pending in the retained record; correspondence is held privately.
 
 ---
 

@@ -2,14 +2,14 @@
 
 The public case file does not include raw evidence bytes for database exports, WordPress exports, server archives, credential dumps, logs, or executable malware samples.
 
-Those artifacts were removed because they may contain client data, customer/contact-form data, credentials, account identifiers, infrastructure details, or reusable attacker code. The investigative value is preserved in the public-safe summaries, hashes, timelines, indicators, and tool output references below.
+Those artifacts were removed because they may contain client data, customer/contact-form data, credentials, account identifiers, infrastructure details, or reusable attacker code. The investigative value is preserved in the public summaries, hashes, timelines, indicators, and tool output references below.
 
 ## Included Public Evidence
 
 - Attacker infrastructure: real malicious domains, redirect destination, Cloudflare proxy IPs, registrar, abuse contact, and operator/backdoor source IPs where the source is attacker-only.
 - Malware behavior: decoded ClickFix behavior, fake Cloudflare pretext, tokenized download URL, TDS logic, credential-stealer behavior, webshell locations, persistence design, and database option names.
 - Forensic metadata: collection dates, file paths, file sizes where useful, SHA256 hashes, evidence IDs, timeline entries, and remediation verification results.
-- Response work: curated analysis scripts, eradication script, pre/post eradication checklists, communication drafts, and chain-of-custody-style evidence inventory.
+- Response work: curated analysis scripts, eradication script, pre/post eradication checklists and an evidence inventory.
 
 ## Withheld Or Redacted
 

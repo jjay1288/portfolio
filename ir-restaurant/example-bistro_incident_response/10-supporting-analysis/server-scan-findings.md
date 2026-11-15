@@ -4,7 +4,7 @@
 **Scanner:** Manual forensic analysis via SSH
 **Server:** iad1-shared-b8-33.sharedhost.invalid (siteuser02)
 **WordPress Version:** 6.9.4
-**Result:** **15 confirmed malicious files, 1 malicious plugin, multiple persistence residues, 1 hidden admin user, 2 sets of stolen credentials**
+**Result:** **Malicious files and plugin code, multiple persistence residues, a hidden administrator, and two captured credential pairs**
 
 ---
 
@@ -135,7 +135,7 @@ Hooks into WordPress authentication filter at priority 999 (runs late, after suc
 - `wp-content/themes/lemonchili/functions.php` contains the same dormant `create_admin=erwesdxsas` administrator-creation backdoor
 - `wp-content/themes/hello-biz-child/functions.php` is **confirmed malicious**: the legitimate child-theme loader code is followed by a bounded `/* __mu_deployer__ */` block that embeds a base64 payload and re-establishes `session-manager.php`, scatter webshells, fallback plugin activation, and login/theme credential theft hooks
 - The malicious child-theme block is surgically removable because it is bracketed by repeated `/* __mu_deployer__ */` markers
-- The March 10 `.wpress` archive lists `themes/hello-biz-child/functions.php` at 1,095 bytes, but that archive and the oldest SharedHost Provider backup are **not treated as trusted restoration sources**; the discrepancy is used only as corroborating evidence that the live child-theme file diverged materially during the compromise window
+- The March 8 archive, catalogued on March 10, lists `themes/hello-biz-child/functions.php` at 1,095 bytes, but that archive and the oldest SharedHost Provider backup are **not treated as trusted restoration sources**; the discrepancy is used only as corroborating evidence that the live child-theme file diverged materially during the compromise window
 
 These theme findings matter because they provide both active and dormant re-entry paths if the site owner later switches layouts or restores an already-tainted child-theme file.
 
@@ -219,7 +219,7 @@ This reconstruction shows the earlier rough date labels in `_wp_site_activity` r
 |---|---|---|---|---|
 | 13 | `wp-content/uploads/2024/06/Stained_Heart_Red-600x500.png` | 365 | Mar 17, 15:43 | **Stolen credentials in cleartext and XOR-encrypted** |
 | 14 | `wp-includes/css/wp-editor-font.css` | ~200 | Mar 8 | Encrypted/base64 data |
-| 15 | `wp-admin/.backup_time` | ~350 | Mar 17 | Encrypted/base64 data |
+| 15 | `wp-admin/.backup_time` | 333 | Legacy timestamp | Hosting metadata in the response record; encoding alone is not evidence of malware |
 
 **Contents of Stained_Heart_Red-600x500.png (credential dump):**
 ```

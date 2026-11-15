@@ -2,45 +2,41 @@
 
 **March 2026 · Small-business website · Incident handler: Jay Phillips**
 
-The first symptom was intermittent visitor redirection. Server inspection later found webshells, credential-capture hooks, a hidden administrator account, and persistence in files and the WordPress database. Removing the visible redirect code would have left several ways to regain access.
+A restaurant's WordPress site was intermittently redirecting visitors to unrelated sites. The investigation found five webshells, captured administrator credentials, a hidden account, and several mechanisms that restored malware after partial cleanup. The response combined evidence collection, containment, coordinated removal, credential rotation, and verification.
 
-This case records the response for a restaurant, identified here as **Example Bistro**. Names, contact details, and client infrastructure identifiers have been replaced. The reports attribute investigation and remediation work to Jay Phillips and separately record provider support and reviewer actions.
+The client is identified here as **Example Bistro**. The supporting records distinguish the incident handler's investigation and cleanup from hosting-provider support and a reviewer's containment work. Client identities, credentials, and raw malware are excluded from this portfolio.
 
-## Investigation
+## Investigation and decisions
 
-The case records analysis of an archive containing 18,897 files, a 20.88 MB database export, a WordPress content export, and live filesystem, authentication, and server-log evidence. The [evidence inventory](example-bistro_incident_response/05-evidence/evidence-inventory.md) identifies retained sources and missing items; raw evidence is not included here.
+**A negative backup search was insufficient.** The March 8 backup was catalogued on March 10: 18,897 entries and a 20.88 MB database export. Searches found no occurrences of the selected redirect domains, but returned many matches for general PHP functions. Those results required interpretation and did not certify the archive as clean.
 
-Three findings changed the response:
+The archive listing records the child theme's `functions.php` at **1,095 bytes**. The later live-server evidence contains a **170,140-byte** version with a bounded malware-deployment block. This establishes a substantial difference between the archived listing and the captured live file; it does not prove the larger payload was in the archive. Given the remaining uncertainty about backup integrity, cleanup used fresh vendor files and targeted removal of the live child-theme block.
 
-- **The archive was not a clean restore point.** Initial searches returned no matches for the selected patterns. Later analysis identified a malware-restoration block in the child theme and rejected both the March 10 archive and the oldest retained hosting backup as trusted theme sources. A negative search did not establish that the backup was clean.
-- **Maintenance mode did not contain the webshells.** A bypass parameter still allowed direct requests to five malicious PHP files. The reviewer recorded directory-level PHP deny rules and follow-up request checks. Exact timing needs reconciliation: some containment entries are labelled PDT while eradication is recorded in UTC.
-- **Persistence crossed several locations.** Mu-plugins, a cache bootstrap, theme code, scheduled tasks, and database options could restore removed components. Cleanup had to address the known mechanisms together.
+**Maintenance mode was not effective containment.** A reviewer found that a bypass parameter still allowed requests to five webshells. Directory-level PHP deny rules were applied, and the response notes record blocked requests across three test variants. The snapshot and server-local time basis place this containment before the coordinated cleanup on March 18.
 
-## Response and verification
+**Removing one component would leave restoration paths.** Static inspection confirmed a database-backed cache bootstrap, theme backdoors, a malicious child-theme deployment block, and distributed webshells. Cleanup had to address these together, followed by manual fixes where script checks showed residual database options or an account-removal problem.
 
-The records describe a coordinated cleanup on March 18, followed by manual correction of database and account-removal checks that the script had not resolved. WordPress core and the parent theme were reinstalled from vendor sources; the malicious child-theme block was removed; the hidden administrator and known persistence residues were deleted; and administrator/database credentials and session salts were rotated.
+## Findings and outcome
 
-Verification recorded matching WordPress core checksums, removal of the known webshell paths, and a Wordfence scan reporting no issues. These checks support the reported cleanup of the identified artifacts. They do not establish the absence of every possible implant or resolve the unverified administrator workstation.
+The retained credential file contains **nine records: six plaintext and three encoded**. Offline decoding of the three encoded entries matched the same two account/password pairs already captured in plaintext. The database export contains **seven email-metadata entries (recipient, subject, and timestamp)**, **eleven administrator-activity entries**, and an empty WooCommerce harvesting store. These are observed captures, not proof of every subsequent use or external transfer.
 
-The [post-eradication checklist](example-bistro_incident_response/07-remediation/post-eradication-checklist.md) separates completed work from follow-up items such as MFA, workstation review, and provider confirmation. It also records that maintenance mode was lifted unintentionally during a rewrite flush. A running WAF alone does not establish that this transition carried no exposure.
+Cleanup began at approximately **21:37 UTC on March 18 (14:37 PDT)**. The evidence snapshot's archive timestamps and seven matching manifest hashes substantiate that time and preserve the files as captured. The response records then describe core and parent-theme reinstalls, removal of the malicious child-theme block and other persistence, deletion of the hidden administrator, password rotation, and session invalidation.
 
-## What the evidence establishes
+The recorded post-cleanup checks include matching WordPress core checksums, removal of the known webshell paths, and a Wordfence scan reporting no issues. Maintenance mode was lifted unintentionally during a rewrite flush; the site returned to service with its WAF active. The verification supports removal of the identified artifacts, while workstation review, MFA confirmation, and provider follow-up remained open in the retained record.
 
-| Finding | Evidence and limit |
-| --- | --- |
-| WordPress credentials were captured | Two credential pairs were recovered from attacker-controlled storage on the server. This is distinct from proving every later use or external transfer. |
-| Email content was intercepted by site malware | Seven entries were recorded in the malware's mail log. The record does not establish capture of every email sent during the incident. |
-| A ClickFix-style payload was planted in the hosting panel | Decoded code referenced the same domain family as the website malware. This supports a connection; it does not prove which workstation executed it or how the first compromise occurred. |
-| The retained backup was already compromised | Later theme findings invalidate the early clean-backup conclusion. Pre-transfer infection and post-transfer panel compromise remain possible explanations. |
-| WooCommerce harvesting code was present | The case records no WooCommerce customer/order data, an empty harvesting store, and payment processing outside WordPress. No payment-data theft was identified within the reviewed WordPress evidence; the external payment system was not assessed here. |
+## Initial access and scope limits
 
-## Technical records
+A ClickFix-style PowerShell downloader was found in a hosting-panel field. Its download domain overlaps with the website malware's infrastructure. That supports an association, but does not establish the original entry point, execution on a particular workstation, or the identity of the operator. The available access-log reconstruction starts after the apparent deployment window.
 
-- [Incident report](example-bistro_incident_response/01-incident-report/IR-2026-0310-EXBI.md): findings, response, outcome, and unresolved access path.
-- [Timeline](example-bistro_incident_response/02-timeline/timeline.md): dated observations and response actions, with hypotheses labelled.
-- [Persistence analysis](example-bistro_incident_response/04-malware-analysis/MAL-005-persistence.md): dependencies that made partial cleanup insufficient.
-- [Authentication reconstruction](example-bistro_incident_response/05-evidence/auth-session-reconstruction.md): what the login records can and cannot attribute.
-- [IOC registry](example-bistro_incident_response/03-iocs/IOC-registry.md) and [analysis scripts](example-bistro_incident_response/09-tools/): detection and offline-analysis material.
-- [Complete case index](example-bistro_incident_response/README.md): supporting reports, historical communications, and checklists.
+The client reported that payments were processed outside WordPress. The retained WordPress evidence does not show payment-data theft; external payment systems were outside this investigation.
 
-Early client and technical reports remain as dated records. Their superseded conclusions are called out at the top of each document. See the [public review notes](../REVIEW-NOTES.md) for corrections and outstanding evidence gaps.
+## Supporting work
+
+- [Technical incident report](example-bistro_incident_response/01-incident-report/IR-2026-0310-EXBI.md)
+- [Timeline](example-bistro_incident_response/02-timeline/timeline.md)
+- [Evidence inventory and verification](example-bistro_incident_response/05-evidence/evidence-inventory.md)
+- [Persistence analysis](example-bistro_incident_response/04-malware-analysis/MAL-005-persistence.md)
+- [Authentication reconstruction](example-bistro_incident_response/05-evidence/auth-session-reconstruction.md)
+- [Analysis scripts](example-bistro_incident_response/09-tools/) and [complete technical index](example-bistro_incident_response/README.md)
+
+*Public case edition: November 15, 2026. Incident results describe March 2026; they are not a current assessment of the site.*
