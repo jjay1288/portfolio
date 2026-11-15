@@ -1,17 +1,13 @@
-# Ronald Phillips Professional Portfolio
+# Ronald Phillips — Cybersecurity Portfolio
 
-Public-safe cybersecurity and technical operations portfolio.
+Selected incident-response and technical operations work, with investigation notes, scripts, and verification records.
 
-This repository collects sanitized work samples intended for professional review. Client, owner, customer, credential, and infrastructure details are redacted or replaced where needed. Attacker-side indicators and TTPs are retained when safe to share and useful for evaluating the work.
+## WordPress incident response
 
-## Portfolio Items
+In March 2026, a restaurant's website redirected visitors to unrelated sites. The investigation found webshells, captured administrator credentials, and several mechanisms that restored malware after partial cleanup.
 
-| Project | Summary |
-| --- | --- |
-| [ir-restaurant](ir-restaurant/) | Sanitized incident response case study covering WordPress compromise investigation, attacker TTPs, evidence handling, eradication, and client-safe reporting. |
+[Read the case study](ir-restaurant/) for the investigation, coordinated cleanup, verification results, and remaining questions. Supporting records include a timeline, malware analysis, an evidence inventory, and analysis scripts.
 
-## Review Notes
+Client names and identifying details have been replaced. Raw credentials, database exports, and malware samples are excluded. March 2026 results describe the incident at that time, not the site's present condition.
 
-- Raw evidence, credentials, database exports, customer data, and executable malware samples are not included.
-- Public artifacts preserve methodology, timelines, IOCs, malware analysis, remediation steps, and communication quality.
-- Analyst attribution is retained where appropriate.
+[Editorial review and evidence qualifications](REVIEW-NOTES.md) explain corrections to the early backup assessment and the limits of the initial-access reconstruction.

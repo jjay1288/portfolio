@@ -1,4 +1,7 @@
 # Security Incident Report: Example Bistro Website
+
+> Historical report; key conclusions superseded. The early searches did not establish a clean backup or exclude themes, plugins, or database persistence. Later child-theme findings invalidate that inference. Initial access and workstation execution remain unverified. Use the [incident report](../01-incident-report/IR-2026-0310-EXBI.md) for the reconciled findings. Public editorial review: November 15, 2026; the source wording below records the earlier assessment.
+
 ## example-bistro.invalid
 
 **Prepared for:** Example Bistro Ownership

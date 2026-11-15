@@ -11,7 +11,7 @@
 
 ## Purpose
 
-This is the maintenance-window go / no-go checklist. It is standard practice to keep a dedicated pre-eradication checklist separate from the full remediation plan so the operator can validate the live environment immediately before destructive cleanup.
+Use this checklist immediately before the recorded cleanup sequence to confirm access, evidence preservation, and readiness. It describes the March 2026 procedure, not a current instruction to modify the site.
 
 If any required check fails, stop and resolve it before running `eradicate.sh`.
 

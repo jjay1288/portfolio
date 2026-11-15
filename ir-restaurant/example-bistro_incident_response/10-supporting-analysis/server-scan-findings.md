@@ -12,7 +12,7 @@
 
 ### A. MU-Plugins (Auto-Load on Every Page Request)
 
-MU-plugins (Must-Use plugins) load automatically on every WordPress request with no activation required. The attacker exploited this for guaranteed code execution.
+MU-plugins (Must-Use plugins) load automatically on every WordPress request with no activation required. This placement allowed the malicious plugin code to load without a separate activation step.
 
 | # | File | Size | Modified | Purpose |
 |---|---|---|---|---|

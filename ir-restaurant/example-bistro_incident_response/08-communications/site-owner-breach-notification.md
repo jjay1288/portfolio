@@ -1,5 +1,7 @@
 # Breach Notification — Site Owner (SiteOwnerUser)
 
+> Historical communication or assessment. Its dated action items and delivery status are not current confirmations. Initial-access and workstation claims must be read with the [incident report's evidence limits](../01-incident-report/IR-2026-0310-EXBI.md). This public copy does not establish notification delivery or a current legal determination.
+
 | Field | Value |
 |---|---|
 | **Case ID** | IR-2026-0310-EXBI |

@@ -13,7 +13,7 @@
 
 ## 1. Executive Summary
 
-During the investigation of the Example Bistro website compromise (IR-2026-0310-EXBI), multiple sets of credentials were discovered to have been captured, exfiltrated, and stored in cleartext by the threat actor's credential-harvesting infrastructure. This report documents all confirmed and suspected credential compromises, their exposure vectors, and the required remediation actions.
+Two WordPress credential pairs were recovered from attacker-controlled storage on the compromised server. This report separates confirmed capture from suspected hosting-panel and workstation exposure. Local capture establishes exposure to the attacker; it does not by itself establish every external transfer or subsequent use.
 
 The credential stealer operated through two components: a modified `wp-login.php` (line 1327) and a malicious `authenticate` filter injected into the active theme's `functions.php`. Captured credentials were written in cleartext to a file disguised as an image in the uploads directory.
 
@@ -75,17 +75,17 @@ The credential stealer operated through two components: a modified `wp-login.php
 
 ---
 
-## 3. Additional Compromised Credentials (SharedHost Provider ClickFix Attack)
+## 3. Suspected hosting-panel and workstation exposure
 
-The investigation revealed that the site administrator (Site Owner) was targeted by a ClickFix social engineering attack through the SharedHost Provider hosting panel. The attack vector involved a malicious PowerShell payload injected into the SSH/SFTP username field of the SharedHost Provider panel interface.
+A ClickFix-style PowerShell downloader was found in the hosting panel's SSH/SFTP username field. This created a possible execution path for an administrator who copied and ran it. The public record does not establish execution on a particular workstation or theft of browser-stored credentials.
 
 | Field | Detail |
 |-------|--------|
-| **Attack Type** | ClickFix PowerShell trojan via SharedHost Provider panel |
+| **Observed Artifact** | ClickFix-style PowerShell downloader in the hosting panel |
 | **Original Panel User** | siteuser01 |
-| **Panel Password** | Unknown, but was stolen from the administrator's browser by the PowerShell payload |
-| **Scope of Compromise** | Any credentials saved in the compromised administrator's browser (including browser-saved passwords, autofill data, and active sessions) should be considered stolen |
-| **Risk Assessment** | **CRITICAL** -- The ClickFix payload had access to browser credential stores, potentially exposing credentials for banking, email, social media, and all other services with saved passwords on the compromised machine. |
+| **Panel Password** | Unknown; browser theft is a hypothesis, not a confirmed capture in the retained evidence |
+| **Scope of Compromise** | If endpoint execution occurred, browser-stored credentials and sessions may be exposed; endpoint review is outstanding |
+| **Risk Assessment** | Potentially serious endpoint exposure; the recovered downloader alone does not establish second-stage behavior or which credentials were accessible. |
 
 ---
 

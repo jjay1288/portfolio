@@ -1,4 +1,7 @@
 # Security Incident Report: Example Bistro Website
+
+> Historical communication or assessment. Its dated action items and delivery status are not current confirmations. Initial-access and workstation claims must be read with the [incident report's evidence limits](../01-incident-report/IR-2026-0310-EXBI.md). This public copy does not establish notification delivery or a current legal determination.
+
 ## example-bistro.invalid -- Updated with Server Investigation Results
 
 **Prepared for:** Example Bistro Ownership
@@ -10,7 +13,7 @@
 
 ## What Has Changed Since Our Last Report
 
-Our first report covered the redirect behavior and the clean backup findings. At that stage, the active malware was still hidden in server-side files we could not access. We are no longer treating the March 10 `.wpress` archive as a trusted theme restore source.
+Our first report covered the redirect behavior and the initially negative backup searches. At that stage, the active malware was still hidden in server-side files we could not access. We are no longer treating the March 10 `.wpress` archive as a trusted theme restore source.
 
 **We now have full access to those server files and completed a full scan.** The results are worse than the first report showed. This report states the findings plainly.
 
@@ -81,7 +84,7 @@ The available logs do not go back far enough to settle that question. The firm c
 
 ## How the Attackers Protected Their Access
 
-The attackers built an unusually sophisticated system to maintain access to your website. They created **five layers of protection**:
+The malware had **five recorded persistence layers** that could restore removed components:
 
 1. **If someone deletes the main malware** -- a hidden program automatically recreates it from a backup stored in the database
 2. **If someone cleans the database** -- any of five hidden backdoor files can rebuild everything
@@ -175,7 +178,7 @@ If anyone who manages the website encountered a "Verify you are human" pop-up th
 
 3. **Were any WooCommerce orders placed between March 8 and today?** While no order data was captured by the malware's harvesting system, we should verify this.
 
-4. **Has anyone encountered a "Verify you are human" pop-up that asked them to paste something?** This is how the attack started. That computer needs to be scanned.
+4. **Has anyone encountered a "Verify you are human" pop-up that asked them to paste something?** This is one possible access path. A computer on which the command was executed needs to be examined.
 
 ---
 

@@ -13,7 +13,7 @@
 
 ## Purpose
 
-This is the post-execution checklist for validation, secret rotation, hardening, provider follow-up, and return-to-service. Keeping this separate from the eradication sequence is standard practice because the tasks happen in a different operational phase and often involve different people.
+This checklist records post-execution validation, credential rotation, hardening, provider follow-up, and return-to-service checks.
 
 Do not return the site to production until the required validation and credential items are complete.
 
@@ -39,11 +39,11 @@ Do not return the site to production until the required validation and credentia
 - [x] Remove `wp-includes/fonts/.htaccess` — **COMPLETE** (removed as part of post-script fix; core checksums clean after removal)
 - [x] Remove remaining 4 containment `.htaccess` files — **COMPLETE** (March 18, 2026; all 4 confirmed absent: `upgrade/`, `uploads/woocommerce_uploads/`, `uploads/`, `languages/`)
 - [x] Re-test the former webshell URLs — **COMPLETE** (March 18, 2026)
-  - `font-metrics.php` → 404 ✅
-  - `wp-update-verify.php` → 404 ✅
-  - `wc-report-handler.php` → 404 ✅ (intermittent 503 is transient SharedHost Provider mod_fcgid load; file confirmed absent; no PHP errors logged)
-  - `wp-cache-stats.php` → 404 ✅ (same caveat)
-  - `wp-locale-handler.php` → 404 ✅ (same caveat)
+  - `font-metrics.php` → 404
+  - `wp-update-verify.php` → 404
+  - `wc-report-handler.php` → 404 (intermittent 503 is transient SharedHost Provider mod_fcgid load; file confirmed absent; no PHP errors logged)
+  - `wp-cache-stats.php` → 404 (same caveat)
+  - `wp-locale-handler.php` → 404 (same caveat)
 
 ---
 
@@ -68,7 +68,7 @@ Do not return the site to production until the required validation and credentia
 
 ## Functional Testing
 
-> **Note:** Maintenance mode was lifted unintentionally when `wp rewrite flush --hard` ran with plugins loaded (March 18, 2026 ~15:xx UTC). Site went live at that point. Wordfence was already active in protecting mode so there was no open window. Remaining functional checks are post-live confirmations.
+> **Note:** Maintenance mode was lifted unintentionally when `wp rewrite flush --hard` ran with plugins loaded (March 18, 2026 ~15:xx UTC). Site went live at that point. Wordfence was already active in protecting mode; this alone does not establish absence of exposure during the transition. Remaining functional checks are post-live confirmations.
 
 - [x] Maintenance mode lifted — **COMPLETE** (unintentional but accepted; site is live)
 - [x] Confirm the homepage loads normally — **PASS** (confirmed during rewrite flush testing)

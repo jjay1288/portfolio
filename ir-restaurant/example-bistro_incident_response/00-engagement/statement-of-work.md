@@ -1,4 +1,7 @@
 # Statement of Work
+
+> Historical engagement document. This public copy does not establish signatures, payment, or completion of every listed deliverable. Status entries retain their source dates.
+
 ## Security Incident Response — example-bistro.invalid
 
 | Field | Value |
@@ -63,23 +66,23 @@ The following are explicitly outside the scope of this engagement unless separat
 
 | # | Deliverable | Description | Status |
 |---|---|---|---|
-| 1 | Initial Security Report | Technical findings from backup and DNS analysis | ✅ Complete — `example-bistro-dc-security-report.md` |
-| 2 | Client-Facing Report (v1) | Plain-language summary for site owner, pre-server-access | ✅ Complete — `08-communications/client-report-v1-pre-scan.md` |
-| 3 | Client-Facing Report (v2) | Updated plain-language report with full server findings | ✅ Complete — `08-communications/client-report-v2-full-findings.md` |
-| 4 | Malware Analysis Reports | Per-artifact technical analysis (MAL-001 through MAL-006) | ✅ Complete — `04-malware-analysis/` |
-| 5 | IOC Registry | Formal indicator of compromise registry with YARA rules and detection signatures | ✅ Complete — `03-iocs/IOC-registry.md` |
-| 6 | Attack Timeline | Chronological reconstruction of attacker and responder actions | ✅ Complete — `02-timeline/timeline.md` |
-| 7 | Evidence Package | Collected malware samples, decoded payloads, database evidence export | ✅ Complete — `05-evidence/` |
-| 8 | Credential Exposure Report | Confirmed compromised accounts, captured credential analysis | ✅ Complete — `06-compromised-credentials/` |
-| 9 | Pre-Eradication Checklist | Go/no-go checklist for eradication execution | ✅ Complete — `07-remediation/pre-eradication-checklist.md` |
-| 10 | Eradication Script | Production bash script for coordinated multi-layer malware removal | ✅ Complete — `07-remediation/eradicate.sh` |
-| 11 | Post-Eradication Verification | Confirmation that all artifacts were removed and site is clean | ⬜ Pending — to be completed after eradication run |
-| 12 | Breach Notification Assessment | Regulatory analysis and notification obligation determination | ✅ Complete — `08-communications/breach-notification-assessment.md` |
-| 13 | Breach Notification — Agency Developer 1 | Draft notification letter, regulatory basis, delivery record | ✅ Draft complete — `08-communications/webagency-breach-notification.md` |
-| 14 | Breach Notification — Site Owner | Draft notification letter, regulatory basis, delivery record | ✅ Draft complete — `08-communications/site-owner-breach-notification.md` |
-| 15 | Engagement Letter | Formal authorization and terms document | ✅ Complete — `00-engagement/engagement-letter.md` |
-| 16 | Statement of Work | This document | ✅ Complete — `00-engagement/statement-of-work.md` |
-| 17 | Lessons Learned Report | Post-incident review and process improvement recommendations | ⬜ Pending — to be completed at case closure |
+| 1 | Initial Security Report | Technical findings from backup and DNS analysis | Complete — `example-bistro-dc-security-report.md` |
+| 2 | Client-Facing Report (v1) | Plain-language summary for site owner, pre-server-access | Complete — `08-communications/client-report-v1-pre-scan.md` |
+| 3 | Client-Facing Report (v2) | Updated plain-language report with full server findings | Complete — `08-communications/client-report-v2-full-findings.md` |
+| 4 | Malware Analysis Reports | Per-artifact technical analysis (MAL-001 through MAL-006) | Complete — `04-malware-analysis/` |
+| 5 | IOC Registry | Formal indicator of compromise registry with YARA rules and detection signatures | Complete — `03-iocs/IOC-registry.md` |
+| 6 | Attack Timeline | Chronological reconstruction of attacker and responder actions | Complete — `02-timeline/timeline.md` |
+| 7 | Evidence Package | Collected malware samples, decoded payloads, database evidence export | Complete — `05-evidence/` |
+| 8 | Credential Exposure Report | Confirmed compromised accounts, captured credential analysis | Complete — `06-compromised-credentials/` |
+| 9 | Pre-Eradication Checklist | Go/no-go checklist for eradication execution | Complete — `07-remediation/pre-eradication-checklist.md` |
+| 10 | Eradication Script | Production bash script for coordinated multi-layer malware removal | Complete — `07-remediation/eradicate.sh` |
+| 11 | Post-Eradication Verification | Confirmation that all artifacts were removed and site is clean | Pending — to be completed after eradication run |
+| 12 | Breach Notification Assessment | Regulatory analysis and notification obligation determination | Complete — `08-communications/breach-notification-assessment.md` |
+| 13 | Breach Notification — Agency Developer 1 | Draft notification letter, regulatory basis, delivery record | Draft complete — `08-communications/web-agency-breach-notification.md` |
+| 14 | Breach Notification — Site Owner | Draft notification letter, regulatory basis, delivery record | Draft complete — `08-communications/site-owner-breach-notification.md` |
+| 15 | Engagement Letter | Formal authorization and terms document | Complete — `00-engagement/engagement-letter.md` |
+| 16 | Statement of Work | This document | Complete — `00-engagement/statement-of-work.md` |
+| 17 | Lessons Learned Report | Post-incident review and process improvement recommendations | Pending — to be completed at case closure |
 
 ---
 
@@ -87,20 +90,20 @@ The following are explicitly outside the scope of this engagement unless separat
 
 | Date | Milestone | Status |
 |---|---|---|
-| March 10, 2026 | Engagement commenced; initial triage begun | ✅ Complete |
-| March 10, 2026 | Backup and database forensics complete | ✅ Complete |
-| March 10, 2026 | Initial security report and client report v1 delivered | ✅ Complete |
-| March 18, 2026 | SharedHost Provider panel access obtained | ✅ Complete |
-| March 18, 2026 | Full server scan complete; all artifacts identified | ✅ Complete |
-| March 18, 2026 | Eradication script and checklist complete | ✅ Complete |
-| March 18, 2026 | Client report v2 delivered | ✅ Complete |
-| March 18, 2026 | Eradication executed | ✅ Complete |
-| March 20, 2026 | Breach notification assessment complete | ✅ Complete |
-| March 20, 2026 | Engagement letter and SOW formalized | ✅ Complete |
-| By March 25, 2026 | Breach notifications sent to Agency Developer 1 and Site Owner | ⬜ Pending |
-| TBD | Post-eradication verification complete | ⬜ Pending |
-| TBD | Lessons learned report delivered | ⬜ Pending |
-| TBD | Case closed | ⬜ Pending |
+| March 10, 2026 | Engagement commenced; initial triage begun | Complete |
+| March 10, 2026 | Backup and database forensics complete | Complete |
+| March 10, 2026 | Initial security report and client report v1 delivered | Complete |
+| March 18, 2026 | SharedHost Provider panel access obtained | Complete |
+| March 18, 2026 | Full server scan complete; all artifacts identified | Complete |
+| March 18, 2026 | Eradication script and checklist complete | Complete |
+| March 18, 2026 | Client report v2 delivered | Complete |
+| March 18, 2026 | Eradication executed | Complete |
+| March 20, 2026 | Breach notification assessment complete | Complete |
+| March 20, 2026 | Engagement letter and SOW formalized | Complete |
+| By March 25, 2026 | Breach notifications sent to Agency Developer 1 and Site Owner | Pending |
+| TBD | Post-eradication verification complete | Pending |
+| TBD | Lessons learned report delivered | Pending |
+| TBD | Case closed | Pending |
 
 ---
 

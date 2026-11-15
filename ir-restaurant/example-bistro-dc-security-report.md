@@ -1,5 +1,7 @@
 # Security Audit Report: example-bistro.invalid
 
+> Historical report; key conclusions superseded. The early searches did not establish a clean backup or exclude themes, plugins, or database persistence. Later child-theme findings invalidate that inference. Initial access and workstation execution remain unverified. Use the [incident report](example-bistro_incident_response/01-incident-report/IR-2026-0310-EXBI.md) for the reconciled findings. Public editorial review: November 15, 2026; the source wording below records the earlier assessment.
+
 **Date:** March 10, 2026 (Updated March 18, 2026)
 **Auditor:** Security Analysis
 **Status:** COMPROMISED -- Immediate Action Required
@@ -285,7 +287,7 @@ A WordPress XML export (WXR format) was taken on March 18, 2026 and analyzed for
 - **Only 3 of 4 WordPress users appear in the export** -- AgencyAdmin2 (user ID 5) has zero content and does not appear at all; user ID 3 is missing (deleted account)
 - **Legitimate external integrations confirmed:** Tripleseat (events), OpenTable (reservations), Square (gift cards), Upserve (ordering), Klaviyo (email marketing)
 - **106 leftover NeuronThemes demo content references** from the Kaon theme remain in the database as GUIDs -- not a security issue but indicates incomplete cleanup from theme migration
-- **Content authored via ChatGPT:** 5 URLs on the About page contain `utm_source=chatgpt.com` tracking parameters
+- **Referral tracking:** Five About-page URLs contain `utm_source=chatgpt.com`. The parameter records a referral label; it does not establish who wrote the page or how its content was produced.
 
 This result is consistent with Findings 4 and the backup analysis -- the malware exists only in server-side files outside of the WordPress content layer.
 

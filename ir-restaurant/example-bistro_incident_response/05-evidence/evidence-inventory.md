@@ -17,11 +17,11 @@ All evidence items are catalogued below with unique identifiers, descriptions, a
 
 | Evidence ID | Description | Source | Date Collected | Collected By | Storage Location | Hash (SHA256) | Status |
 |-------------|-------------|--------|----------------|--------------|------------------|---------------|--------|
-| EVD-001 | WordPress AI1WM backup (.wpress file, 4.89 GB, 18,897 files) | SharedHost Provider hosting panel -- All-in-One WP Migration export | March 10, 2026 | Jay Phillips | `audit/src/` | `38e0d5851d84fccc56f99dbdb479d717a7f3f05afc5accc8021b1fd979b69a2d` | Analyzed -- CLEAN |
-| EVD-002 | Extracted database dump (database.sql, 20.88 MB) | Extracted from EVD-001 | March 10, 2026 | Jay Phillips | `audit/` | `960650794a6a4cd3e34c6879af5ed952858f7ea6e8cc66a842507d375379112b` | Analyzed -- CLEAN |
+| EVD-001 | WordPress AI1WM backup (.wpress file, 4.89 GB, 18,897 files) | SharedHost Provider hosting panel -- All-in-One WP Migration export | March 10, 2026 | Jay Phillips | `audit/src/` | `38e0d5851d84fccc56f99dbdb479d717a7f3f05afc5accc8021b1fd979b69a2d` | Initial pattern searches negative; see scope notes |
+| EVD-002 | Extracted database dump (database.sql, 20.88 MB) | Extracted from EVD-001 | March 10, 2026 | Jay Phillips | `audit/` | `960650794a6a4cd3e34c6879af5ed952858f7ea6e8cc66a842507d375379112b` | Initial pattern searches negative; see scope notes |
 | EVD-003 | Wpress file listing (wpress-file-listing.txt) | Extracted from EVD-001 -- full directory listing of backup contents | March 10, 2026 | Jay Phillips | `audit/` | `929bb2fb30d6892f49ae73a2eb10661d6d2a5ac817c2cd452b6e71baaa8ebeeb` | Complete |
 | EVD-004 | Malware scan results (wpress_scan_results.txt, 190 KB) | Automated scan of EVD-001 contents | March 10, 2026 | Jay Phillips | `audit/` | `5056b62d8dabae124d4400afa147a5a44ddd38e94ba82ea37a704ae3dcaf8c72` | Complete |
-| EVD-005 | WordPress XML export (example-bistro.WordPress.2026-03-18.xml, 4.1 MB) | Live site WordPress export tool | March 18, 2026 | Jay Phillips | `audit/` | `37bb42253140ccc459d7f40bb6f36ff96f4caf455d77bf64f19d4fa408da3bdb` | Analyzed -- CLEAN |
+| EVD-005 | WordPress XML export (example-bistro.WordPress.2026-03-18.xml, 4.1 MB) | Live site WordPress export tool | March 18, 2026 | Jay Phillips | `audit/` | `37bb42253140ccc459d7f40bb6f36ff96f4caf455d77bf64f19d4fa408da3bdb` | Initial pattern searches negative; see scope notes |
 | EVD-006 | Decoded PowerShell payload (decode_payload.ps1) | Decoded from SharedHost Provider panel SSH/SFTP username field -- ClickFix attack | March 18, 2026 | Jay Phillips | `audit/` | `5f622b768053f42fd099ef93ba0c9ce6f0c4f9580c209e2d768301264cd2cd3c` | Decoded -- MALICIOUS |
 | EVD-007 | Malicious domain research (malicious-domain-research.md) | OSINT research on C2 and staging domains | March 10, 2026 | Jay Phillips | `audit/` | N/A (research document) | Complete |
 | EVD-008 | Server-side scan findings (server-scan-findings.md) | SSH-based server scan of live environment | March 18, 2026 | Jay Phillips | `audit/` | N/A (report document) | Complete |
@@ -44,10 +44,10 @@ All evidence items are catalogued below with unique identifiers, descriptions, a
 ## 2. Evidence Notes
 
 ### EVD-001: WordPress AI1WM Backup
-The primary evidence artifact. This 4.89 GB backup was generated using the All-in-One WP Migration plugin and contains the complete WordPress installation including all files, plugins, themes, uploads, and the database. The backup was taken from the compromised environment and represents the state of the site at the time of collection. Analysis confirmed the backup itself is clean of active threats (malware was present on the live server but several malicious files were excluded from the backup scope or added after the backup was created).
+The 4.89 GB archive contains 18,897 recorded files and an extracted database. Initial pattern searches were negative, but later child-theme analysis identified malware-restoration code in backup-derived content. EVD-001 is evidence of the compromised environment, not a trusted restoration source. The negative searches of EVD-002 and the EVD-005 content export likewise do not establish the safety of the complete site.
 
 ### EVD-006: Decoded PowerShell Payload
-The SharedHost Provider panel SSH/SFTP username field contained an encoded PowerShell ClickFix payload. When decoded, this payload downloads and executes a secondary stage trojan designed to steal browser credentials, session tokens, and saved passwords from the administrator's workstation.
+The hosting panel SSH/SFTP username field contained an encoded PowerShell downloader with a ClickFix-style pretext. Decoding shows download, execution, and file-removal behavior. The stored artifact does not prove execution on a workstation or the behavior of the downloaded second stage.
 
 ### EVD-011: Credential Dump
 The file `Stained_Heart_Red-600x500.png` is not a valid image file. It contains cleartext and XOR-encrypted WordPress credentials captured by the credential stealer components. Contains 9 entries total: 4 plaintext for webagency, 2 plaintext for SiteOwnerUser, and 3 XOR-encrypted entries. All 3 XOR-encrypted entries were decrypted on March 18, 2026 (see MAL-003 Section 6.1) and found to be re-captures of the same two accounts (webagency and SiteOwnerUser). No additional compromised accounts were identified.

@@ -1,5 +1,7 @@
 # Malicious Domain Research: webanalytics-cdn.* Campaign
 
+> Historical report; key conclusions superseded. The early searches did not establish a clean backup or exclude themes, plugins, or database persistence. Later child-theme findings invalidate that inference. Initial access and workstation execution remain unverified. Use the [incident report](../01-incident-report/IR-2026-0310-EXBI.md) for the reconciled findings. Public editorial review: November 15, 2026; the source wording below records the earlier assessment.
+
 **Date:** March 10, 2026
 **Status:** Active threat -- domains are only 20 days old
 
@@ -41,16 +43,11 @@
 | Location | Oxnard, California |
 | WHOIS | www.registrar-abuse.invalid |
 | Abuse Contact | abuse@globaldomaingroup.com / +1.8053943992 |
-| FTC Action | **Warning letter issued by the Federal Trade Commission** |
+| FTC reference | Unverified; source document unavailable in the retained research |
 
-### FTC Warning Letter
+### Unverified registrar reference
 
-The U.S. Federal Trade Commission has issued a formal warning letter to Global Domain Group LLC. While the exact details were not accessible (403 response from FTC PDF), the existence of an FTC warning letter to a domain registrar is significant. FTC warning letters to registrars typically involve:
-- Failure to adequately respond to abuse reports
-- Facilitating fraudulent domain registrations
-- Insufficient action against domains used for scams, phishing, or malware
-
-This suggests Global Domain Group LLC has a documented history of being associated with abusive domain registrations.
+The original notes refer to an FTC warning letter, but record that the linked document could not be retrieved. No conclusion about that letter's allegations or the registrar's conduct is supported by the material retained here.
 
 ---
 
@@ -149,7 +146,7 @@ While similar in overall approach, this campaign has distinct characteristics:
 
 ---
 
-## Related Research: WordPress Redirect Malware Landscape
+## Related WordPress redirect-malware research
 
 ### Similar Active Campaigns (2025-2026)
 

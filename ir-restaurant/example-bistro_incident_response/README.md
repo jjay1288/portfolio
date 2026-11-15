@@ -3,7 +3,9 @@
 **Case ID:** IR-2026-0310-EXBI
 **Case Name:** Example Bistro Website Compromise
 **Classification:** Tier 1 -- Critical Incident
-**NIST SP 800-61 Phase:** Recovery / Post-Eradication
+**Recorded phase (March 2026):** Recovery / Post-Eradication
+
+Read the [case summary](../README.md) for the reconciled account. Some records below are historical drafts or pre-cleanup plans; their status is not a confirmation of the site's present condition.
 
 ---
 
@@ -40,5 +42,5 @@
 - Customer-data harvesting capability present, but WooCommerce was confirmed unused and no customer/order/payment data existed in WordPress
 - Hidden persistent admin access by threat actor
 - Multi-layered persistence with database-level backup mechanism
-- Active email interception of all site communications
+- Seven intercepted-email entries recovered; the hook could capture mail sent through WordPress
 - Ongoing risk: stolen credentials enable further access to business systems

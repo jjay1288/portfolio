@@ -1,4 +1,7 @@
 # Engagement Letter
+
+> Historical engagement document. This public copy does not establish signatures, payment, or completion of every listed deliverable. Status entries retain their source dates.
+
 ## Security Incident Response Services
 
 | Field | Value |

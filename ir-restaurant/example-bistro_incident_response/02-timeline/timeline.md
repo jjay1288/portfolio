@@ -1,5 +1,7 @@
 # Incident Timeline -- IR-2026-0310-EXBI
 
+> Timing qualification: the source records containment at `10:05 PDT` on March 18 and eradication at `14:37–14:38 UTC` the same day, conflicting with the stated sequence. The labels are retained pending verification. The initial-access rows below are hypotheses, not endpoint observations.
+
 **Case:** Example Bistro Website Compromise
 **All timestamps in UTC unless noted. Server timestamps are PDT (UTC-7).**
 
@@ -15,13 +17,13 @@
 
 ---
 
-## Initial Compromise Window (Estimated)
+## Possible initial-access chain (unverified dates)
 
 | Timestamp | Source | Actor | Event | Significance |
 |---|---|---|---|---|
-| Late Feb -- Early Mar 2026 | Analysis | Threat Actor | Administrator encounters ClickFix fake CAPTCHA | Social engineering initiates the attack chain |
-| Late Feb -- Early Mar 2026 | Analysis | Threat Actor | PowerShell trojan executes on admin Windows PC | Credential theft from browser password stores |
-| Late Feb -- Early Mar 2026 | Analysis | Threat Actor | SharedHost Provider panel credentials stolen | Enables server-side access |
+| Late Feb -- Early Mar 2026 | Hypothesis | Unknown | Possible administrator exposure to a ClickFix prompt | No endpoint evidence establishes this event |
+| Late Feb -- Early Mar 2026 | Hypothesis | Unknown | Possible execution of a PowerShell downloader on an administrator workstation | Execution and second-stage behavior remain unverified |
+| Late Feb -- Early Mar 2026 | Hypothesis | Unknown | Possible theft of hosting-panel credentials | One explanation for panel access; pre-transfer compromise also remains possible |
 
 ---
 
@@ -143,7 +145,7 @@
 | 2026-03-18 ~15:00 UTC | Verification | Responder | WordPress core checksums verified clean; `wp-includes/fonts/.htaccess` removed (leftover containment file); final checksum pass confirmed clean |
 | 2026-03-18 ~15:10 UTC | Action | Responder | All 5 WordPress administrator passwords rotated via WP-CLI `--skip-plugins --skip-themes`; MySQL password rotated, `wp-config.php` updated and verified |
 | 2026-03-18 ~15:15 UTC | Action | Responder | `DISALLOW_FILE_EDIT` added to `wp-config.php`; PHP memory limit raised to 256M in `wp-config.php` and `.user.ini`; resolves Elementor OOM crashes on SharedHost Provider shared hosting |
-| 2026-03-18 ~15:30 UTC | Action | Responder | Maintenance mode lifted (unintentional — `wp rewrite flush --hard` with plugins loaded removed `.maintenance`); site went live; Wordfence already in protecting mode so no open window |
+| 2026-03-18 ~15:30 UTC | Action | Responder | Maintenance mode lifted (unintentional — `wp rewrite flush --hard` with plugins loaded removed `.maintenance`); site went live; Wordfence already in protecting mode; this does not establish absence of exposure during the transition |
 | 2026-03-18 ~15:45 UTC | Action | Responder | Developer accounts webagency (ID 4) and AgencyAdmin2 (ID 5) deleted; content reassigned to SiteOwnerUser (ID 2) |
 | 2026-03-18 ~16:00 UTC | Verification | Responder | Wordfence firewall confirmed in protecting mode (`firewallEnabled=1`, `wafStatus=enabled`, `blockBadPOST=1`); login brute-force protection enabled (`loginSecurityEnabled=1`, 4 failures / 5 min window, 240 min lockout) |
 | 2026-03-18 ~16:30 UTC | Action | Responder | WP Ghost 5.5.02 installed from WordPress.org; verified clean (no eval/base64/webshell indicators); deactivated — "ghost" mode incompatible with SharedHost Provider shared hosting .htaccess constraints; Wordfence brute-force protection serving as interim wp-login.php protection |

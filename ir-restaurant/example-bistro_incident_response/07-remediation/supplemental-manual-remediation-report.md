@@ -9,7 +9,7 @@
 
 ---
 
-> **STATUS AS OF MARCH 18, 2026:** This document was written as a pre-eradication planning artifact. Full eradication was completed March 18, 2026 14:37–14:38 UTC via `eradicate.sh`. All items in the manual checklist below were completed. The site is live, clean, and in Recovery/Post-Eradication phase. See `post-eradication-checklist.md` for current status of remaining items. The content below is preserved as a historical record of the pre-eradication state and the manual actions that were required.
+> **STATUS AS OF MARCH 18, 2026:** This document was written as a pre-eradication planning artifact. Full eradication was completed March 18, 2026 14:37–14:38 UTC via `eradicate.sh`. All items in the manual checklist below were completed. The case records return to service and verification of the known artifacts; remaining limitations are listed in the recovery checklist. See `post-eradication-checklist.md` for current status of remaining items. The content below is preserved as a historical record of the pre-eradication state and the manual actions that were required.
 
 ---
 
